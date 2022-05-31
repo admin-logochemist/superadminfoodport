@@ -22,3 +22,9 @@ code:not([class*='language-']):after {
 code[class*='language-'] {
   padding: 0;
 }
+.upgrade-to-pro-button.mui-fixed.MuiBox-root.css-1j2q1g7 {
+  display: none;
+}
+.MuiBox-root.css-a9n7s9 {
+  display: none;
+}
