@@ -1,7 +1,7 @@
 // ** Next Imports
 import Head from 'next/head'
-import { Router } from 'next/router'
-
+import router, { Router } from 'next/router'
+import React,{useState,useEffect} from 'react'
 // ** Loader Import
 import NProgress from 'nprogress'
 
@@ -26,6 +26,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 
 // ** Global css styles
 import '../../styles/globals.css'
+import LoginPage from './pages/login'
 
 const clientSideEmotionCache = createEmotionCache()
 
@@ -48,9 +49,19 @@ const App = props => {
 
   // Variables
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
-
+  const [authorized, setAuthorized] = useState(true);
+ 
+  const userInfo=()=>{
+    if(authorized){
+     router.push('/pages/login')
+    }
+  }
+  useEffect(() => {
+   
+    userInfo();
+  }, [])
   return (
-    <CacheProvider value={emotionCache}>
+<>
       <Head>
         <title>FoodPort</title>
         <meta
@@ -60,16 +71,21 @@ const App = props => {
         <meta name='keywords' content='Material Design, MUI, Admin Template, React Admin Template' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
+{authorized &&
+  
+  <SettingsProvider>
+  <SettingsConsumer>
+    {({ settings }) => {
+      return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+    }}
+  </SettingsConsumer>
+</SettingsProvider>
 
-      <SettingsProvider>
-        <SettingsConsumer>
-          {({ settings }) => {
-            return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
-          }}
-        </SettingsConsumer>
-      </SettingsProvider>
-    </CacheProvider>
+  }
+
+  </>
   )
+
 }
 
 export default App
