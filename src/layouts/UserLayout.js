@@ -45,6 +45,7 @@ const UserLayout = ({ children }) => {
   }
 
   return (
+    
     <VerticalLayout
       hidden={hidden}
       settings={settings}
