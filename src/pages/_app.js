@@ -42,13 +42,14 @@ const App = props => {
   const [authorized, setAuthorized] = useState(true);
  
   const userInfo=()=>{
-    if(authorized){
-     router.push('/pages/login')
+    
+    if (authorized) {
+      router.push('/pages/login')
     }
   }
-  useEffect(async() => {
+  useEffect(() => {
    
-   await userInfo();
+  userInfo();
   }, [])
   return (
 <>
