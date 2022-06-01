@@ -18,6 +18,8 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/newline-before-return': 'off',
+    'react/lines-around-comment': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/display-name': 'off',
     '@next/next/no-img-element': 'off',
