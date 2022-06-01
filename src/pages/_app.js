@@ -1,36 +1,28 @@
-// ** Next Imports
+
 import Head from 'next/head'
 import router, { Router } from 'next/router'
 import React,{useState,useEffect} from 'react'
-// ** Loader Import
 import NProgress from 'nprogress'
 
-// ** Emotion Imports
+
 import { CacheProvider } from '@emotion/react'
 
-// ** Config Imports
 import themeConfig from 'src/configs/themeConfig'
 
-// ** Component Imports
 import UserLayout from 'src/layouts/UserLayout'
 import ThemeComponent from 'src/@core/theme/ThemeComponent'
 
-// ** Contexts
 import { SettingsConsumer, SettingsProvider } from 'src/@core/context/settingsContext'
 
-// ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
 
-// ** React Perfect Scrollbar Style
 import 'react-perfect-scrollbar/dist/css/styles.css'
 
-// ** Global css styles
 import '../../styles/globals.css'
 import LoginPage from './pages/login'
 
 const clientSideEmotionCache = createEmotionCache()
 
-// ** Pace Loader
 if (themeConfig.routingLoader) {
   Router.events.on('routeChangeStart', () => {
     NProgress.start()
@@ -43,11 +35,9 @@ if (themeConfig.routingLoader) {
   })
 }
 
-// ** Configure JSS & ClassName
 const App = props => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
-  // Variables
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
   const [authorized, setAuthorized] = useState(true);
  
@@ -56,9 +46,9 @@ const App = props => {
      router.push('/pages/login')
     }
   }
-  useEffect(() => {
+  useEffect(async() => {
    
-    userInfo();
+   await userInfo();
   }, [])
   return (
 <>

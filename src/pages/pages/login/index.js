@@ -1,11 +1,9 @@
-// ** React Imports
+
 import { useState } from 'react'
 
-// ** Next Imports
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-// ** MUI Components
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
@@ -22,7 +20,7 @@ import MuiCard from '@mui/material/Card'
 import InputAdornment from '@mui/material/InputAdornment'
 import MuiFormControlLabel from '@mui/material/FormControlLabel'
 
-// ** Icons Imports
+
 import Google from 'mdi-material-ui/Google'
 import Github from 'mdi-material-ui/Github'
 import Twitter from 'mdi-material-ui/Twitter'
