@@ -51,7 +51,10 @@ const App = props => {
    
   userInfo();
   }, [])
+
+
   return (
+    
 <>
       <Head>
         <title>FoodPort</title>
